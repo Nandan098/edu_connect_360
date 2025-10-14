@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 15% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 20%;
+
+    /* Government Blue Primary */
+    --primary: 217 91% 42%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Saffron Accent */
+    --accent: 28 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 217 91% 42%;
+
+    --muted: 217 15% 95%;
+    --muted-foreground: 220 15% 45%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 20% 88%;
+    --input: 217 20% 88%;
+    --ring: 217 91% 42%;
+
+    --radius: 0.75rem;
+    
+    /* Custom tokens for government portal */
+    --hero-gradient-from: 217 91% 42%;
+    --hero-gradient-to: 217 91% 32%;
+    --card-shadow: 217 20% 20%;
+    --success: 142 76% 36%;
+    --info: 199 89% 48%;
+    
+    /* Home page background */
+    --home-bg: 205 100% 97%;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 217 91% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --accent: 28 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 217 15% 65%;
+
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 22%;
+    --input: 220 20% 22%;
+    --ring: 217 91% 52%;
+    
+    --hero-gradient-from: 217 91% 52%;
+    --hero-gradient-to: 217 91% 42%;
+    --card-shadow: 0 0% 0%;
+    --success: 142 76% 46%;
+    --info: 199 89% 58%;
+    
+    /* Home page background - darker blue for dark mode */
+    --home-bg: 215 40% 15%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    @apply bg-gradient-to-br from-[hsl(var(--hero-gradient-from))] to-[hsl(var(--hero-gradient-to))];
+  }
+  
+  .card-elevated {
+    @apply bg-card shadow-lg border border-border rounded-lg;
+  }
+  
+  .feature-card {
+    @apply card-elevated p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+  }
+  
+  .data-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20;
+  }
+  
+  .stats-highlight {
+    @apply text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+}
